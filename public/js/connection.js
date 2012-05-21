@@ -24,6 +24,7 @@ function heartbeat(){
   client.publish("/newUser", {name:cfg.myName, id:seshID});
   heart=window.setTimeout("heartbeat()",55000)
 }
+
 $(window).unload(function(){
   client.publish("/newUser", {name:"UNLOAD", id:"0"})
 })

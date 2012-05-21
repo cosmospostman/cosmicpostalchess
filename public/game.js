@@ -115,7 +115,8 @@ function setGameVars(fayeClient, cfg){
 }
 
 function send(move){
-  client.publish(p2pComms, {from: cfg.myColour, move:move });
+  if(move.length > 0 )
+    client.publish(p2pComms, {from: cfg.myColour, move:move });
 }
 
 //Convenience functions return information about a square

@@ -21,7 +21,7 @@ Features
  
 To-do
 -----
-* Uncaught ReferenceError: p2pComms is not defined (game.js 118)
+* Uncaught ReferenceError: p2pComms is not defined (game.js 118) / underlying symptoms remain
 * Investigate "event.layerX and event.layerY are broken and deprecated in WebKit. They will be removed from the engine in the near future"
 
 License
