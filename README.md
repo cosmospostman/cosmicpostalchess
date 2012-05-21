@@ -5,6 +5,12 @@ Synopsis
 --------
 A way for me to play my grandfather chess from anywhere in the world.
 
+Usage
+-----
+	npm start
+or
+	node server.js
+
 Features
 --------
 * node.js application server
