@@ -7,9 +7,9 @@ A way for me to play my grandfather chess from anywhere in the world.
 
 Usage
 -----
-	npm start
+<pre>npm start</pre>
 or
-	node server.js
+<pre>node server.js</pre>
 
 Features
 --------
