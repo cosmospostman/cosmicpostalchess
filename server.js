@@ -1,25 +1,15 @@
-//Specify vendor directory
-//require.paths.unshift(__dirname+"/vendor");
-
 var http = require('http'),
-    sys  = require('sys'),
-    fs   = require('fs'),
     url  = require('url'),
     nodeStatic=require('node-static'),
     faye = require('faye');
-var bayeux = new faye.NodeAdapter({
-  mount:    '/faye',
-  timeout:  45
-});
 
-var server = http.createServer(function(request,response){
-  var file = new nodeStatic.Server(__dirname+'/public', {
-    cache: false //while in development
-  });
+var bayeux = new faye.NodeAdapter({ mount:'/faye', timeout:45 });
 
+var server = http.createServer( function(request,response){
+  var file = new nodeStatic.Server(__dirname+'/public', { cache: false });
   request.addListener('end', function(){
-    var location = url.parse(request.url, true),
-          params = (location.query || request.headers);
+    var location = url.parse( request.url, true)
+ 	  var params = (location.query || request.headers);
     file.serve(request,response);
   });
 });
