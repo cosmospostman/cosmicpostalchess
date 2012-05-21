@@ -178,7 +178,7 @@ $(function(){
   var alphaCoords = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
   for (var i=8; i>0; i--)
     for (var j=0; j<8; j++)
-      $('#board').append('<div class="square ui-droppable" id="' + alphaCoords[j<D-r>] + i + '"></div>');
+      $('#board').append('<div class="square ui-droppable" id="' + alphaCoords[j] + i + '"></div>');
 
 });
 
