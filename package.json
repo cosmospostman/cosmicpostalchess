@@ -1,6 +1,6 @@
 {
 	"name" : "cosmicpostalchess",
-	"version" : "0.1",
+	"version" : "0.1.0",
 	"dependencies" : {
 		"faye" : ">= 0.5.5",
 		"node-static" : ">= 0.5.7"

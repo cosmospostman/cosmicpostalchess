@@ -6,7 +6,7 @@ var http = require('http'),
     fs   = require('fs'),
     url  = require('url'),
     nodeStatic=require('node-static'),
-    faye = require('faye/faye-node');
+    faye = require('faye');
 var bayeux = new faye.NodeAdapter({
   mount:    '/faye',
   timeout:  45
