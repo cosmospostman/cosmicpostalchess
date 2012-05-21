@@ -18,12 +18,12 @@ function clockTick(colour){
   }
 }
 
-function  clockSwap(){
+function clockSwap(){
   lastMove=whoseMove;
-    $("#"+whoseMove+"Timer").removeClass("active");
-    if(whoseMove=="white") whoseMove="black";
-    else if(whoseMove=="black") whoseMove="white";
-    $("#"+whoseMove+"Timer").addClass("active");
-    window.setTimeout("clockTick('"+whoseMove+"')", 1000);
+  $("#"+whoseMove+"Timer").removeClass("active");
+  if(whoseMove=="white") whoseMove="black";
+  else if(whoseMove=="black") whoseMove="white";
+  $("#"+whoseMove+"Timer").addClass("active");
+  window.setTimeout("clockTick('"+whoseMove+"')", 1000);
 }
 

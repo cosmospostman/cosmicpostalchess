@@ -3,7 +3,7 @@
 //TODO config.json
 var seshID= Math.floor(Math.random()*parseInt(String((new Date()).getTime()).replace(/\D/gi,''))).toString(16);
 var sqSide = 40;
-var lock=false;
+var invitationLock=false;
 var cfg={
   myID:0,
   myName:"",
@@ -104,12 +104,12 @@ $(window).unload(function(){
       $('.myName').each(function(){ $(this).text(cfg.myName) });
     }
     //TO US, (from our partner OR unlocked)
-    if(message.to==seshID && (message.from==cfg.oppID || lock==false) ){
-      //Set lock
-      if(lock==false){
+    if(message.to==seshID && (message.from==cfg.oppID || invitationLock==false) ){
+      //Set invitation lock
+      if(invitationLock==false){
         $('#chooseOpp').hide();
         $('#startGame').fadeIn();
-        lock=true;
+        invitationLock=true;
       }
       if (message.message=="DECLINED") {declineInvite(); return false;}
       if (message.message=="ACCEPTED") {newGame(cfg.gameID); return false;}
@@ -134,7 +134,7 @@ $(window).unload(function(){
   });
 
 function declineInvite(){
-  lock=false;
+  invitationLock=false;
   oppID="";
   $('#startGame').hide();
   $('#chooseOpp').fadeIn();
