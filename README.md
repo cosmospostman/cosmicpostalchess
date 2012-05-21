@@ -21,7 +21,8 @@ Features
  
 To-do
 -----
-* Comprehensive refactoring effort. This was a first project using node and jQuery, so the codebase is naturally messy
+* Uncaught ReferenceError: p2pComms is not defined (game.js 118)
+* Investigate "event.layerX and event.layerY are broken and deprecated in WebKit. They will be removed from the engine in the near future"
 
 License
 -------

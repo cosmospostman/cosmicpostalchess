@@ -208,6 +208,7 @@ li.blackChat{ background:url("img/blackSays.png") no-repeat; }
     left: 224px;
     top: 224px;
     color: rgba(0,0,0,0);
+    display: none;
 }
 
 #control{
