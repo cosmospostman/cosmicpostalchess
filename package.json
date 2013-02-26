@@ -1,8 +1,15 @@
 {
-	"name" : "cosmicpostalchess",
-	"version" : "0.1.0",
-	"dependencies" : {
-		"faye" : ">= 0.5.5",
-		"node-static" : ">= 0.5.7"
+	"name": "cosmicpostalchess",
+	"version": "0.1.0",
+	"dependencies": {
+		"faye": ">= 0.5.5",
+		"node-static": ">= 0.5.7"
+	},
+	"subdomain": "postalchess",
+	"scripts": {
+		"start": "server.js"
+	},
+	"engines": {
+		"node": "0.8.x"
 	}
 }

@@ -1,0 +1,311 @@
+@font-face {
+	font-family: 'fixed';
+	src: url('lib/DroidSansMono.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'bs-serif';
+	src: url('lib/BS-Charter.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'sans';
+	src: url('lib/DroidSans.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body{
+    width: 100%;
+    margin: 0 0;
+    font-family: 'sans';
+    background: url('img/background.svg');
+    background-size:100%;
+}
+
+#settings{
+    position: absolute;
+    margin: 6 6;
+
+    &:hover { cursor: pointer; }
+
+    >* {
+        padding:0;
+        float:left;
+    }
+
+    #expander{
+        display: none;
+        width: 0;
+        overflow: visible;
+        height: 16px;
+        background: #eeeeec;
+        border-top: #888a85 solid 1px;
+        border-bottom: #888a85 solid 1px;
+        font-size: 10px;
+        line-height: 16px;
+        div{
+            height: 16px;
+            line-height: 16px;
+            border-left: solid 1px #888a85;
+            color: #888a85;
+            float: left;
+            &:hover{ background: url(img/set-gradient.png); }
+            span{ vertical-align: top; }
+            img{ vertical-align: text-bottom; }
+            span{ padding-right:4px;}
+            :last-child {
+                font-style: italic;
+                padding-left: 4px;
+            }
+        }
+    }
+}
+
+/* Control panel */
+  .gameClock{
+    width: 200px;
+  }
+
+  .ptimer{
+    font-family: sans;
+    font-size: 12px;
+    padding-right: 12px;
+    height: 22px;
+    line-height: 22px;
+    position: relative;
+    opacity: 0.2;
+  }
+  
+  .ptimer>span.clock{ position: absolute; right:6;  }
+  .ptimer>img{
+    height: 18px;
+    width: 18px;
+    vertical-align: text-bottom;
+  }
+
+  div.ptimer.active{
+  background: url(img/clock-highlight.png) top right;
+  overflow: show;
+  padding-left:12px;
+  margin-left: -12px;
+  opacity: 1;
+}
+
+  #p2timer{opacity:0.2}
+
+  #entry{
+    margin:0;
+  }
+
+  #entry>*{
+    margin:0;
+  }
+  
+  #chat{
+    border: 2px solid #555753;
+    border-width:0 2 0 2;
+    padding: 0 4 0 4;
+    width:200;
+    height: 36px;
+    line-height:11px;
+    background: white;
+    overflow: hidden;
+    font-family: fixed;
+    font-size:10px;
+  }
+#console{
+    width: 200px;
+    padding: 0;
+    position: absolute;
+    bottom: 0px;
+    font-family: fixed;
+}
+#console-container{
+  height:397px;
+  overflow: hidden;
+  position: relative;
+}
+#console>ol{
+  font-weight: bold;
+  font-size: 10px;
+  line-height:12px;
+  padding: 6;
+  margin: 0;
+}
+#console>ol>li{
+  list-style-type: none;
+}
+
+li>*{padding:0}
+
+li.chatEntry{
+  line-height:12px;
+  list-style: none;
+  font-size: 10px;
+  font-weight: normal;
+  margin: 0 0 0 16;
+  padding: 0 0 2 16;
+}
+
+div#console>ol>li>ul>li.noBalloon{ background: none }
+li.whiteChat{ background:url("img/whiteSays.png") no-repeat; }
+li.blackChat{ background:url("img/blackSays.png") no-repeat; }
+
+/* Main application canvas */
+#app-outer{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    #app-inner{
+        width: 680px;
+        height: 440px;
+        position: absolute;
+        left: -340px;
+        top: -220px;
+    }
+}
+
+#board{
+    float: right;
+    font-size:10px;
+    background:url(img/board.svg) no-repeat;
+    background-size: 100% 100%;
+    width: 320px;
+    height: 320px;
+    position: absolute;
+    top: 50px;
+    left: 40px;
+    >div{ float: left; }
+    .square{
+        height: 40px;
+        width: 40px;
+        z-index: 1;
+        font-size: 10px;
+        color: rgba(0,0,0,0);
+    }
+    .piece{
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        left: 224px;
+        top: 224px;
+        color: rgba(0,0,0,0);
+        display: none;
+    }
+}
+
+#control{
+    float: right;
+    width: 200px;
+    height: 440px;
+    border-left: solid #888a85 1px;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: 12px;
+   
+    h1{
+        font-family: bs-serif;
+        font-size: 22px;
+        font-weight: normal;
+        margin: 12 0 6 0;
+    }
+
+    #game{ display: none }
+
+    #askName, #chooseOpp, #startGame{ font-size:12px; }
+
+    #startGame, #chooseOpp {display:none}
+
+    .ti-skewer{
+        line-height: 12px;
+        font-size: 12px;
+        color: #888a85;
+        padding: 0 0 6 0;
+        text-align: right;
+        >img{
+            float:left;
+            padding-right: 4px;
+            vertical-align: text-bottom;
+        }
+    }
+
+    #askNameForm>input{
+        height: 18px;
+        &[type='text'] { /* TODO: type=text; */
+            width: 170px;
+            background: url('img/name-input-bg.png');
+            border: 0;
+            float: left;
+            font-family: sans;
+            font-size: 12px;
+            padding-left: 4px;
+        }
+    }
+
+    #userlist{
+        text-align: center;
+        padding: 0;
+        li {
+            list-style-type: none;
+            padding: 2px;
+            &:hover{
+                font-weight: bold;
+                cursor: pointer;
+            }
+        }
+    }
+
+    #switcher{
+        width: 198px;
+        height: 60px;
+        position: relative;
+        border: 1px solid #888a85;
+        border-radius: 4px;
+        &:hover { cursor: pointer; }
+        >span{
+            width:99;
+            font-size:12px;
+            position: absolute;
+            bottom:4;
+            text-align:center;
+            overflow: hidden;
+        }
+    }
+
+    #buttons{
+        margin: 6 0 6 0;
+        text-align: center;
+        line-height:10px;
+        vertical-align: middle;
+        #decline:hover, #accept:hover {cursor: pointer}
+    }
+
+    #wait{
+        margin: 6 0 6 0;
+        text-align:center;
+        padding-right: 12px;
+        font-size:12px;
+        line-height:16px;
+        color: #888a85;
+        >img{ vertical-align:text-bottom; }
+    }
+}
+
+*:focus{
+    outline: none;
+}
+
+ul{margin:0}
+
+#bPawn{
+    position: absolute;
+    left:28;
+}
+
+#wPawn{
+    position: absolute;
+    left:126;
+}
